@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Position GPS</string>
+    <string name="map_key" translatable="false">AIzaSyCKn3Qr0Kqm6GPRcPZm1SGWFkktZ6F-1uk</string>
 </resources>

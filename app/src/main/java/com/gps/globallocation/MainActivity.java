@@ -34,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
     private android.widget.Button btnLocation;
     private TextView txtLocation;
     private android.widget.Button btnContinueLocation;
+    private android.widget.Button gmapButton;
     private TextView txtContinueLocation;
     private StringBuilder stringBuilder;
 
@@ -48,6 +49,7 @@ public class MainActivity extends AppCompatActivity {
         this.btnContinueLocation = (Button) findViewById(R.id.btnContinueLocation);
         this.txtLocation = (TextView) findViewById(R.id.txtLocation);
         this.btnLocation = (Button) findViewById(R.id.btnLocation);
+        this.gmapButton = (Button) findViewById(R.id.gmapButton);
 
         mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
 
@@ -109,6 +111,15 @@ public class MainActivity extends AppCompatActivity {
             isContinue = true;
             stringBuilder = new StringBuilder();
             getLocation();
+        });
+
+        gmapButton.setOnClickListener(v -> {
+            if(!isGPS){
+                Toast.makeText(this, "Please turn on GPS", Toast.LENGTH_SHORT).show();
+                return;
+            }
+            Intent intent = new Intent(MainActivity.this, gmapss.class);
+            startActivity(intent);
         });
     }
 
